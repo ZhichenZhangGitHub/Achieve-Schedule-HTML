@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>车次时刻表</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .center {
+            text-align: center;
+            margin-top: 20px;
+        }
+        select {
+            padding: 5px;
+            font-size: 16px;
+        }
+    </style>
+    <script>
+        function showSchedule() {
+            var selectedTrain = document.getElementById("trainSelect").value;
+            var allTables = document.getElementsByClassName("scheduleTable");
+            
+            for (var i = 0; i < allTables.length; i++) {
+                allTables[i].style.display = "none";
+            }
+            
+            if (selectedTrain === "G96") {
+                document.getElementById("g96Table").style.display = "table";
+            } else if (selectedTrain === "G98") {
+                document.getElementById("g98Table").style.display = "table";
+            } else if (selectedTrain === "G69") {
+                document.getElementById("g69Table").style.display = "table";
+            } else {
+                for (var i = 0; i < allTables.length; i++) {
+                    allTables[i].style.display = "table";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="center">
+    <label for="trainSelect">选择车次:</label>
+    <select id="trainSelect" onchange="showSchedule()">
+        <option value="all">全部</option>
+        <option value="G96">G96</option>
+        <option value="G98">G98</option>
+        <option value="G69">G69</option>
+    </select>
+</div>
+
+<table id="g96Table" class="scheduleTable">
+    <tr>
+        <th>站序</th>
+        <th>车站</th>
+        <th>车次</th>
+        <th>出发时间</th>
+        <th>到达时间</th>
+        <th>历时</th>
+        <th>停留</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>郑州</td>
+        <td>G96</td>
+        <td>07:05</td>
+        <td>—-</td>
+        <td>—-</td>
+        <td>—-</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>郑州东</td>
+        <td>G96</td>
+        <td>07:25</td>
+        <td>07:22</td>
+        <td>—-</td>
+        <td>3分</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>北京西</td>
+        <td>G96</td>
+        <td>—-</td>
+        <td>09:36</td>
+        <td>2小时31分</td>
+        <td>—-</td>
+    </tr>
+</table>
+
+<table id="g98Table" class="scheduleTable">
+    <tr>
+        <th>站序</th>
+        <th>车站</th>
+        <th>车次</th>
+        <th>出发时间</th>
+        <th>到达时间</th>
+        <th>历时</th>
+        <th>停留</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>郑州东</td>
+        <td>G98</td>
+        <td>15:07</td>
+        <td>—-</td>
+        <td>—-</td>
+        <td>—-</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>北京西</td>
+        <td>G98</td>
+        <td>—-</td>
+        <td>17:18</td>
+        <td>2小时11分</td>
+        <td>—-</td>
+    </tr>
+</table>
+
+<table id="g69Table" class="scheduleTable">
+    <tr>
+        <th>站序</th>
+        <th>车站</th>
+        <th>车次</th>
+        <th>出发时间</th>
+        <th>到达时间</th>
+        <th>历时</th>
+        <th>停留</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>北京西</td>
+        <td>G69</td>
+        <td>18:00</td>
+        <td>—-</td>
+        <td>—-</td>
+        <td>—-</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>石家庄</td>
+        <td>G69</td>
+        <td>19:02</td>
+        <td>19:00</td>
+        <td>1小时</td>
+        <td>2分</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>郑州东</td>
+        <td>G69</td>
+        <td>20:21</td>
+        <td>20:18</td>
+        <td>2小时18分</td>
+        <td>3分</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>武汉</td>
+        <td>G69</td>
+        <td>21:55</td>
+        <td>21:55</td>
+        <td>3小时55分</td>
+        <td>—-</td>
+    </tr>
+</table>
+
+<script>
+    // 初始显示所有表格
+    document.getElementById("trainSelect").value = "all";
+    showSchedule();
+</script>
+
+</body>
+</html>
